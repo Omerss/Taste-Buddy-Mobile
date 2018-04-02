@@ -1,0 +1,110 @@
+{
+  "PUB STARTERS":
+    [
+      {
+        "title": "Fried Pickles",
+        "description": "Served with your choice of Ranch dressing or Tartar sauce",
+        "price": 10
+      },
+      {
+        "title": "Mozzarella Sticks",
+        "description": "served with Phil's Famous Marinara",
+        "price": 8
+      },
+      {
+        "title": "Coconut Shrimp",
+        "description": "served with Sweet Chili sauce",
+        "price": 12
+      },
+      {
+        "title": "Hot Brooklyn Pretzel",
+        "description": "served with Mustard or Nacho Cheese",
+        "price": 5
+      },
+      {
+        "title": "Jalepeno Poppers",
+        "description": "made with cheddar cheese and served with your choice of Ranch dressing or Sour Cream",
+        "price": 10
+      },
+      {
+        "title": "Mac & Cheese Bites",
+        "description": "served with spicy ketchup or brown gravy",
+        "price": 10
+      },
+      {
+        "title": "Loaded Nachos",
+        "description": "Tortila chips topped with our house-made chili, nacho cheese, olives jalapenos and sour cream",
+        "price": 13
+      },
+      {
+        "title": "Cheesy Onion Soup",
+        "description": "topped with melted provolone",
+        "price": 8
+      }
+
+    ],
+  "SLIDERS":
+          [
+
+          ],
+  "SIDES":
+          [
+            {
+              "title": "Fries",
+              "description": "Add $3.00 for chili, nacho cheese, or brown gravy!",
+              "price": 7
+            },
+            {
+              "title": "Onion Rings",
+              "description": "Onion Rings",
+              "price": 8
+            },
+            {
+              "title": "Curly Fries",
+              "description": "add $3.00 for chili, nacho cheese, or brown gravy",
+              "price": 8
+            },
+            {
+              "title": "Loaded Baked Potato",
+              "description": "served with bacon, sour cream and chives. Add $2.00 for cheddar cheese",
+              "price": 6
+            },
+            {
+              "title": "Grilled Veggies",
+              "description": "Zucchini, yellow squash and portobello mushrooms",
+              "price": 8
+            },
+            {
+              "title": "Corn On The Cob",
+              "description": "served with butter",
+              "price": 3
+            },
+            {
+              "title": "Baked Beans",
+              "description": "Baked Beans",
+              "price": 3
+            }
+          ],
+  "SALADS": [
+    {
+      "title": "House",
+      "description": "Romaine or Mixed Greens with tomato, cucumber, red onion and croutons",
+      "price": 10
+    },
+    {
+      "title": "Caesar",
+      "description": "Romaine lettuce with croutons and both shaved and grated parmigiana cheese, tossed in Caesar dressing",
+      "price": 12
+    },
+    {
+      "title": "Arugula",
+      "description": "with candied pecans, sundried tomato & shaved parmigiana",
+      "price": 12
+    },
+    {
+      "title": "20th Street Special",
+      "description": "Arugula with goat cheese, pears, dried cranberries, and candied pecans",
+      "price": 12
+    }
+  ]
+}
