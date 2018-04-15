@@ -1,18 +1,29 @@
 import {
-    LOAD_ALL_MENU,
-    NAV_PROFILE, UPDATE_CATEGORIES,
+    LOAD_ALL_MENU, LOADING_MENU, LOGIN_USER_SUCCESS, NAV_LOGIN,
+    NAV_MENU, UPDATE_CATEGORIES,
     UPDATE_MENU
 }
     from "./types";
 
 
 export const ScanRestaurant  = () => {
-    return {
-        type: NAV_PROFILE,
-
+    Barcode = "dummy";
+    return (dispatch) => {
+        getDataForRestaurant(dispatch, Barcode);
+        dispatch({
+            type: NAV_MENU
+        });
     };
+
 };
 
+const getDataForRestaurant = (dispatch, Barcode) => {
+    //
+    const profile = {
+        allergy: 0
+    };
+    updateMenuData(dispatch, profile);
+};
 
 export const updateMenuItems = ( menuType ) => {
     // console.log("updateMenuItems", menuType);
@@ -32,9 +43,16 @@ export const getMenuCategories = (categories) => {
     };
 };
 
+
+
 export const updateMenu = (profile) => {
+    return (dispatch) => {
+        updateMenuData(dispatch, profile);
+    };
+};
 
 
+const updateMenuData = (dispatch, profile) => {
     let menu = require('../assets/menus/menu.json');
     switch(profile['allergy']){
         case 0:
@@ -67,17 +85,19 @@ export const updateMenu = (profile) => {
     for (let prop in menu) {
         array.push(prop);
     }
-
-    return (dispatch) => {
-        dispatch({
-            type: UPDATE_CATEGORIES,
-            payload: array
-        });
-        dispatch({
-            type: LOAD_ALL_MENU,
-            payload: menu
-        });
-    };
+    dispatch({
+        type: UPDATE_CATEGORIES,
+        payload: array
+    });
+    dispatch({
+        type: LOAD_ALL_MENU,
+        payload: menu
+    });
+    console.log("loaded menu");
+    dispatch({
+        type: LOADING_MENU,
+        payload: false
+    })
 };
 
 async function getItemsInMenu(menu, userProfile){

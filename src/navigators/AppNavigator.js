@@ -4,18 +4,17 @@ import { connect } from 'react-redux';
 import { NavigationActions, addNavigationHelpers, StackNavigator, TabNavigator } from 'react-navigation';
 import { addListener } from '../utils/redux';
 import ToolbarAndroid, {TabBarItem} from 'react-native-vector-icons/MaterialIcons';
-
+// import ToolbarAndroid from 'react-native-vector-icons/Ionicons';
 
 import MenuView from '../components/MenuView';
 import ProfileScreen from '../components/ProfileScreen';
 import LoginForm from '../components/LoginForm';
-import SearchActivity from '../components/SearchActivity';
-import ActivitiesForm from "../components/ActivitiesForm";
+
+import ScanRestaurantForm from "../components/ScanRestaurantForm";
 import ActivityDataForm from "../components/ActivityDataForm";
 import TabBarComponent from "../components/utils/TabBarComponent";
 import RegistrationScreen from "../components/RegistrationForm";
-import {BackHandler, Platform} from "react-native";
-import ScanRestaurantForm from "../components/ScanRestaurantForm";
+import ActivitiesForm from "../components/ActivitiesForm";
 
 
 const Activities = StackNavigator(
@@ -29,29 +28,35 @@ const Activities = StackNavigator(
     }
 );
 
-const MainMenu = TabNavigator(
+
+const RestaurantNavigator = StackNavigator(
     {
         ScanRestaurant: {screen: ScanRestaurantForm},
-        // FindLocation: {screen: SearchActivity},
-        Profile: { screen: ProfileScreen },
         Menu: { screen: MenuView },
+    },
+    {
+        initialRouteName: 'ScanRestaurant',
+        navigationOptions: {header: null}
+    }
+);
 
+const MainMenu = TabNavigator(
+    {
+        Profile: { screen: ProfileScreen },
+        RestaurantNavigator: {screen: RestaurantNavigator},
     },
     {
         navigationOptions: ({ navigation }) => ({
-            // See https://material.io/icons/#ic_build for more icons
 
             tabBarIcon: ({ }) => {
                 const { routeName } = navigation.state;
                 let iconName;
-                if (routeName === 'ScanRestaurant') {
-                    iconName = 'search';
+                if (routeName === 'RestaurantNavigator') {
+                    iconName = 'restaurant';
                 } else if (routeName === 'Profile') {
-                    iconName = 'person';}
-                // }else if (routeName === 'FindLocation') {
-                //     iconName = 'pets';
-                // }
-                return <ToolbarAndroid size={20}>{iconName}</ToolbarAndroid>;
+                    iconName = 'person';
+                }
+                return <ToolbarAndroid size={25}></ToolbarAndroid>;
             },
         }),
         tabBarComponent: TabBarComponent,
@@ -59,13 +64,14 @@ const MainMenu = TabNavigator(
         swipeEnabled: false,
         showIcon: true,
         tabBarPosition: 'top',
-        initialRouteName: 'ScanRestaurant'
+        initialRouteName: 'RestaurantNavigator'
     }
 );
 
 
 export const AppNavigator = StackNavigator(
     {
+        RestaurantNavigator: {screen: RestaurantNavigator},
         Activities: { screen: Activities },
         Login: { screen: LoginForm },
         Menu: { screen: MainMenu },

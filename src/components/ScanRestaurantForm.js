@@ -5,32 +5,29 @@ import { View } from 'react-native';
 import { Button } from './common';
 import { ScanRestaurant } from '../actions';
 
-class ScanRestaurantFrom extends Component {
+class ScanRestaurantForm extends Component {
     onNextPress(){
-        this.props.ScanRestaurant({ });
+        this.props.ScanRestaurant();
     }
 
     render() {
         return(
-            <View style={{flex:1}}>
-                <Button onPress={this.onNextPress.bind(this)}>
-                    Next
-                </Button>
+            <View style={{flex:1, justifyContent: 'center', alignItems:'center'}}>
+                <View style={styles.barcodeContainer}>
+                    <Button onPress={this.onNextPress.bind(this)}>
+                        Scan
+                    </Button>
+                </View>
             </View>
         );
     }
 }
 
 const styles = {
-    inputField: {
-        flex:1
-    },
-    topText: {
-        fontSize: 30,
-        textAlign: 'center'
-    },
-    topTextContainer: {
-        height: 120
+    barcodeContainer: {
+        height:200,
+        width:200,
+        justifyContent:'center'
     }
 };
 
@@ -40,4 +37,4 @@ const mapStateToProp = state => {
     return {email, password, error, loading };
 };
 
-export default connect(mapStateToProp, {ScanRestaurant})(ScanRestaurantFrom);
+export default connect(mapStateToProp, {ScanRestaurant})(ScanRestaurantForm);

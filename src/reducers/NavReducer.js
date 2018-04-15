@@ -2,7 +2,7 @@ import {AppNavigator} from "../navigators/AppNavigator";
 import {NavigationActions} from "react-navigation";
 import {
     NAV_LOGIN, NAV_LOGOUT, NAV_CHALLENGE, NAV_PROFILE, SCREEN_LOGIN, NAV_ACTIVITIES,
-    ACTIVITY_SELECTED, NAV_REGISTRATION, NAV_SCAN_RESTAURANT
+    ACTIVITY_SELECTED, NAV_REGISTRATION, NAV_SCAN_RESTAURANT, NAV_MENU
 } from "../actions/types";
 
 // Start with two routes: The Main screen, with the Login screen on top.
@@ -63,6 +63,13 @@ export default (state = initialNavState, action) => {
                 state
             );
             break;
+        case NAV_MENU:
+            nextState = AppNavigator.router.getStateForAction(
+                NavigationActions.navigate({ routeName: 'Menu' }),
+                state
+            );
+            break;
+
         default:
             nextState = AppNavigator.router.getStateForAction(action, state);
             break;

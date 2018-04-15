@@ -1,13 +1,14 @@
 
 import {
     UPDATE_MENU,
-    UPDATE_CATEGORIES, LOAD_ALL_MENU
+    UPDATE_CATEGORIES, LOAD_ALL_MENU, LOADING_MENU
 } from "../actions/types";
 
 const INITIAL_STATE = {
     categories: [],
     categoryMenu: [],
-    overallMenu: []
+    overallMenu: [],
+    isLoading: true,
 };
 
 export default (state=INITIAL_STATE, action) => {
@@ -19,6 +20,8 @@ export default (state=INITIAL_STATE, action) => {
             return { ...state, categories: action.payload } ;
         case LOAD_ALL_MENU:
             return { ...state, overallMenu: action.payload  } ;
+        case LOADING_MENU:
+            return { ...state, isLoading: action.payload  } ;
         default:
             return state;
     }

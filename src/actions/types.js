@@ -2,6 +2,7 @@ export const NAV_LOGIN = 'Login';
 export const NAV_LOGOUT = 'Logout';
 export const NAV_CHALLENGE = 'Challenge';
 export const NAV_PROFILE = 'Profile';
+export const NAV_MENU = 'Menu';
 export const NAV_ACTIVITIES = 'Activities';
 export const NAV_REGISTRATION = 'Registration';
 export const NAV_SCAN_RESTAURANT = 'ScanRestaurant';
@@ -30,4 +31,5 @@ export const DIET_CHANGED = 'diet_changed';
 export const UPDATE_MENU = 'update_menu';
 export const UPDATE_CATEGORIES = 'update_categories';
 export const LOAD_ALL_MENU = 'load_all_menu';
+export const LOADING_MENU = 'loading_menu';
 

@@ -6,7 +6,7 @@ import Button from './Button';
 
 
 const CourseDetail = ({ courseData }) => {
-    const { title, description } = courseData;
+    const { title, description, price } = courseData;
     const { thumbnailStyle,
         headerContentStyle,
         thumbnailContainerStyle,
@@ -18,6 +18,7 @@ const CourseDetail = ({ courseData }) => {
             <View style={headerContentStyle}>
                 <Text style={headerTextStyle}>{title}</Text>
                 <Text>{description}</Text>
+                <Text>{price}</Text>
             </View>
         </CardSection>
     );
@@ -25,6 +26,7 @@ const CourseDetail = ({ courseData }) => {
 
 const styles = {
     headerContentStyle: {
+        height: 100,
         flexDirection: 'column',
         justifyContent: 'space-around'
     },

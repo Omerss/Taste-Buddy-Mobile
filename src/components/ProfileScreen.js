@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
-
+// import {RadioGroup, RadioButton} from 'react-native-flexi-radio-button'
 
 import { Card, CardSection, Input, Button, Badge } from './common';
 import axios from 'axios';
@@ -10,7 +10,6 @@ import axios from 'axios';
 import baseURL from "../communication/HttpCommunication"
 import {connect} from "react-redux";
 import {dietChanged, updateMenu} from "../actions";
-
 
 var radio_props = [
     {label: 'None', value: 0 },
@@ -20,23 +19,42 @@ var radio_props = [
     {label: 'seashell', value: 4 },
     {label: 'peanuts', value: 5 },
     {label: 'vegetarian', value: 6 },
-    // {label: 'vegan', value: '7' },
 ];
 
 class ProfileScreen extends Component {
     onDietChanged = (value) => {
+        console.log(value);
         this.props.dietChanged(value);
         this.props.updateMenu({allergy: value});
     };
 
-    render() {
+    onSelect(index, value){
+        console.log(value)
+    };
+
+    renderOptions () {
         return(
-            <View style={{flex:1}}>
+            <View>
+                {radio_objects.map((obj) => {
+                    <RadioButton value={obj.value} >
+                        <Text>{"babba"}</Text>
+                    </RadioButton>
+                })}
+            </View>
+        )
+
+    };
+
+    render() {
+
+        return(
+
+            <View style={{flex:1, alignItems:'center'}}>
                 <RadioForm
                     radio_props={radio_props}
                     initial={0}
                     formHorizontal={false}
-                    labelHorizontal={true}
+                    labelHorizontal={false}
                     buttonColor={'#2196f3'}
                     animation={true}
                     onPress={(value) => {this.onDietChanged(value)}}

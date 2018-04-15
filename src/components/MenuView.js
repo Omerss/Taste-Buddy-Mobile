@@ -73,7 +73,11 @@ class MenuView extends Component {
     }
 
     render() {
-        return(
+        if (this.props.isLoading) {
+            return <View><Text>Loading...</Text></View>;
+        }
+        // this is the content you want to show after the promise has resolved
+        return (
             <View style={{flex:1}}>
                 {this.renderMenuBar()}
                 {/*<Text>*/}
@@ -108,9 +112,9 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProp = state => {
-    const { categories, categoryMenu, overallMenu } = state.restaurantData;
+    const { categories, categoryMenu, overallMenu, isLoading } = state.restaurantData;
 
-    return { userMenu: categoryMenu, menuCategories: categories };
+    return { userMenu: categoryMenu, menuCategories: categories, isLoading };
 };
 
 export default connect(mapStateToProp, {updateMenuItems, getMenuCategories})(MenuView);
